@@ -72,9 +72,11 @@ class Blockchain:
         return True
     
     def add_transaction(self, sender, receiver, amount):
+        # Add the transaction to the list of transactions
         self.transactions.append({'sender': sender,
                                   'receiver': receiver,
                                   'amount': amount})
+        # Return the index of the block that will hold this transaction
         previous_block = self.get_previous_block()
         return previous_block['index'] + 1
 
